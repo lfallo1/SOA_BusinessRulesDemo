@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/EmployeeAdapter" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/EmployeeAdapter" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="EmployeesCollection" type="EmployeesCollection"/>
+   <xs:complexType name="EmployeesCollection">
+      <xs:sequence>
+         <xs:element name="Employees" type="Employees" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Employees">
+      <xs:sequence>
+         <xs:element name="employeeId" type="xs:int"/>
+         <xs:element name="firstName" type="string20" minOccurs="0" nillable="true"/>
+         <xs:element name="lastName" type="string25" minOccurs="0"/>
+         <xs:element name="salary" type="xs:int" />
+         <xs:element name="departmentId" type="xs:int" minOccurs="0" nillable="true"/>
+         <xs:element name="designation" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="EmployeeAdapterSelect_varDeptIdInputParameters" type="EmployeeAdapterSelect_varDeptId"/>
+   <xs:complexType name="EmployeeAdapterSelect_varDeptId">
+      <xs:sequence>
+         <xs:element name="varDeptId" type="xs:int" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="string20">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="20"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string25">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="25"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="EmployeeType">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="employee" type="Employees"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="BonusAmount">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="bonusAmount" type="xs:decimal"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

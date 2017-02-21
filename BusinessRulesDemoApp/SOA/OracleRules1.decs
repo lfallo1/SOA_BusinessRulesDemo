@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="OracleRules1">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+        <repository type="SCA-Archive">
+            <path>BusinessRulesDemoApp/oracle/rules/businessrulesdemoapp/OracleRules1.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService name="OracleRules1_DecisionService_1" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/OracleRules1/OracleRules1_DecisionService_1">
+        <catalog>OracleRules1</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>businessrulesdemoapp.OracleRules1.DecisionService_1</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>businessrulesdemoapp.OracleRules1.DecisionService_1</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+    <schemaInformation>
+        <dictionary fqnPackage="businessrulesdemoapp" fqnName="OracleRules1" updateNumber="61">
+            <schemaBrowser>
+                <package>com.oracle.xmlns.pcbpel.adapter.db.top.employeeadapter</package>
+                <namespace>http://xmlns.oracle.com/pcbpel/adapter/db/top/EmployeeAdapter</namespace>
+            </schemaBrowser>
+            <schemaImport namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/EmployeeAdapter" localPart="Employee.xsd" schemaLocation="Schemas/Employee.xsd">
+                <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/EmployeeAdapter" localPart="Employee.xsd" schemaLocation="Schemas/Employee.xsd"/>
+            </schemaImport>
+        </dictionary>
+    </schemaInformation>
+</decisionServices>
